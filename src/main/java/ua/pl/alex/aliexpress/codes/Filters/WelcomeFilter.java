@@ -26,12 +26,17 @@ public class WelcomeFilter extends BaseHttpFilter {
             servletRequest.getRequestDispatcher("/pages/common/error.jsp").forward(servletRequest, servletResponse);
         } else {
             String trimedId = id.trim();
-//            byte[] data = Base64.decode(trimedId);
-//            try {
-//                trimedId = new String(data, "UTF-8");
-//            } catch (UnsupportedEncodingException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                byte[] data = Base64.decode(trimedId);
+                if(null!=data){
+                    trimedId = new String(data, "UTF-8");
+                }else{
+                    servletRequest.getRequestDispatcher("/pages/common/error.jsp").forward(servletRequest, servletResponse);
+                }
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                servletRequest.getRequestDispatcher("/pages/common/error.jsp").forward(servletRequest, servletResponse);
+            }
             if (trimedId.length() > 0) {
                 if (!trimedId.equals(PropertyHolder.getInstance().getMainId())) {
                     servletRequest.getRequestDispatcher("/pages/common/error.jsp").forward(servletRequest, servletResponse);

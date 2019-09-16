@@ -4,7 +4,7 @@ import ua.pl.alex.aliexpress.codes.DTO.CouponDTO;
 import ua.pl.alex.aliexpress.codes.Entity.Coupon;
 import ua.pl.alex.aliexpress.codes.dao.Dao;
 import ua.pl.alex.aliexpress.codes.dao.DaoFactory;
-import ua.pl.alex.aliexpress.codes.datasource.DataSource;
+import ua.pl.alex.aliexpress.codes.datasource.DataSourceHikariImpl;
 import ua.pl.alex.aliexpress.codes.service.api.Service;
 
 import java.sql.Connection;
@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class CouponServiceImpl implements Service<Integer, CouponDTO> {
     private Dao<Integer, Coupon> couponDao;
 
     private CouponServiceImpl() {
-        couponDao = DaoFactory.getInstance().getCouponDao();
+        //couponDao = DaoFactory.getInstance().getCouponDao();
     }
 
     public static synchronized CouponServiceImpl getInstance() {
@@ -52,7 +51,7 @@ public class CouponServiceImpl implements Service<Integer, CouponDTO> {
         //--------------------------------------------------
              //  coupons.addAll(couponDao.getAll());
         //----------------------------------------------------
-//        DataSource dataSource = DataSource.getInstance();
+//        DataSourceHikariImpl dataSource = DataSourceHikariImpl.getInstance();
 //
 //        try(Connection connection = dataSource.getConnection(); Statement statement = connection.createStatement()){
 //            ResultSet rs = statement.executeQuery("SELECT * FROM coupon ORDER BY rating");

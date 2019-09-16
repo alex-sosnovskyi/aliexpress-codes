@@ -3,7 +3,7 @@ package ua.pl.alex.aliexpress.codes.dao;
 
 
 import ua.pl.alex.aliexpress.codes.Entity.Entity;
-import ua.pl.alex.aliexpress.codes.datasource.DataSource;
+import ua.pl.alex.aliexpress.codes.datasource.DataSourceHikariImpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,14 +16,14 @@ import java.util.List;
  */
 public abstract class CrudDao<T extends Entity<Integer>> implements Dao<Integer, T> {
     private Class<T> type;
-    private DataSource dataSource;
+    private DataSourceHikariImpl dataSource;
     private static final String SELECT_ALL="Select * from %s";
     private static final String FIND_BY_ID="Select * from %s where id=%d";
     private static final String DELETE_BY_ID="DELETE * from %s where id=%d";
 
     public CrudDao(Class<T> type) {
         this.type = type;
-        this.dataSource= DataSource.getInstance();
+        this.dataSource= DataSourceHikariImpl.getInstance();
     }
 
     @Override

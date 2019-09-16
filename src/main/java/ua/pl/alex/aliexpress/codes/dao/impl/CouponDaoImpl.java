@@ -2,8 +2,6 @@ package ua.pl.alex.aliexpress.codes.dao.impl;
 
 import ua.pl.alex.aliexpress.codes.Entity.Coupon;
 import ua.pl.alex.aliexpress.codes.dao.CrudDao;
-import ua.pl.alex.aliexpress.codes.dao.Dao;
-import ua.pl.alex.aliexpress.codes.datasource.DataSource;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -42,7 +40,7 @@ public class CouponDaoImpl  extends CrudDao<Coupon> {
         List<Coupon> coupons = new ArrayList<>();
         Coupon couponTmp = null;
 //        List<Coupon> result = null;
-//        try (Connection connection = DataSource.getInstance().getConnection();
+//        try (Connection connection = DataSourceHikariImpl.getInstance().getConnection();
 //             //PreparedStatement preparedStatement = connection.prepareStatement(READ_ALL)
 //
 //        ) {
