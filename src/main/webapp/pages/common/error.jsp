@@ -12,10 +12,10 @@
     <meta name="description" content="1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic&subset=latin,cyrillic'
-          rel='stylesheet' type='text/css'>
+    <%--<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic&subset=latin,cyrillic'--%>
+          <%--rel='stylesheet' type='text/css'>--%>
 
-    <link rel="stylesheet" href="../../css/errorstyle.css">
+    <%--<link rel="stylesheet" href="../../css/errorstyle.css">--%>
     <title>Aliexpress Codes Manager</title>
 </head>
 <body>
