@@ -5,14 +5,16 @@ import java.util.Date;
 /**
  * Created by Aleksandr on 12.09.2019.
  */
-public class Coupon extends Entity<Integer>{
+public class Coupon extends Entity<Integer> {
     private String name;
     private String description;
     private String code;
     private String region;
     private Date startOn;
     private Date endOf;
-private String link;
+    private String link;
+    private int rating;
+
 
     public Coupon(String name, String description, String code, String link, String region, Date startOn, Date endOf) {
         this.name = name;
@@ -80,4 +82,13 @@ private String link;
     public void setLink(String link) {
         this.link = link;
     }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
 }

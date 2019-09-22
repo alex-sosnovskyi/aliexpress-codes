@@ -20,6 +20,8 @@ import java.util.List;
 public class MainController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+        response.setCharacterEncoding("utf-8");
+        request.setCharacterEncoding("utf-8");
         String reg = request.getParameter("reg");
         if(null==reg || reg.length()==0 || reg.trim().length()==0 ||reg.isEmpty()){
             request.getRequestDispatcher("/pages/common/error.jsp").forward(request, response);
