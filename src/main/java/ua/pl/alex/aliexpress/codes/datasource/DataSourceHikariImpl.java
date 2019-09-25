@@ -50,16 +50,14 @@ public class DataSourceHikariImpl {
 //        }
         //---------------c3p0 pool connection--------------------------------------------------------
         try {
-          connection = poolConnections.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
+          //connection = poolConnections.getConnection();
             try {
                 connection = getSimpleConnection();
-            } catch (URISyntaxException e1) {
-                e1.printStackTrace();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 //        try {
 //            connection = hikariDatasource.getConnection();
@@ -72,11 +70,11 @@ public class DataSourceHikariImpl {
     }
 
     private static Connection getSimpleConnection() throws URISyntaxException, SQLException {
-        URI dbUri = new URI(System.getenv("DATABASE_URL"));
+        URI dbUri = new URI("postgres://vstsfecvnlpito:6ed295f0d1417024c5e9b6bd27abd11510fc659c7d2cebb1d870fd2e68ee3b06@ec2-54-221-215-228.compute-1.amazonaws.com:5432/d6hkgr6gnttlqn");
 
         String username = dbUri.getUserInfo().split(":")[0];
         String password = dbUri.getUserInfo().split(":")[1];
-        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath()+ "?sslmode=require";
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath()+"?sslmode=require";
 
         return DriverManager.getConnection(dbUrl, username, password);
     }
