@@ -42,8 +42,8 @@ public class CouponAdminServiceImpl {
                 String code = rs.getString("code");
                 String link = rs.getString("link");
                 String region = rs.getString("region");
-                Date dayOn = rs.getDate("dayOn");
-                Date dayOf = rs.getDate("dayOf");
+                Date dayOn = rs.getDate("dayon");
+                Date dayOf = rs.getDate("dayof");
                 int rating = rs.getInt("rating");
                 Coupon coupon = new Coupon(name, description, code, link, region, dayOn, dayOf);
                 coupon.setId(id);
