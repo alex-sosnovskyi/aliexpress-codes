@@ -9,7 +9,10 @@ import ua.pl.alex.aliexpress.codes.helper.PropertyHolder;
 
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
@@ -50,6 +53,13 @@ public class DataSourceHikariImpl {
           connection = poolConnections.getConnection();
         } catch (SQLException e) {
             e.printStackTrace();
+            try {
+                connection = getSimpleConnection();
+            } catch (URISyntaxException e1) {
+                e1.printStackTrace();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
         }
 //        try {
 //            connection = hikariDatasource.getConnection();
@@ -59,6 +69,16 @@ public class DataSourceHikariImpl {
         //---------------------------------------------------------------------------
 
         return connection;
+    }
+
+    private static Connection getSimpleConnection() throws URISyntaxException, SQLException {
+        URI dbUri = new URI(System.getenv("DATABASE_URL"));
+
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath()+ "?sslmode=require";
+
+        return DriverManager.getConnection(dbUrl, username, password);
     }
 
     private static void initPoolConnections() {
