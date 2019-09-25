@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <html>
 <head>
-    <title>Edit coupon</title>
+    <title>Редактирование купона</title>
 </head>
 <body>
 <form name="adminLogin" action="${pageContext.servletContext.contextPath}/admin-panel/statistic/edit" align="center"
@@ -32,7 +32,7 @@
     <br>
     <label>Rating <input name="rating" type="text" value="<c:out value="${editCoupon.rating}" default=" "/>"></label><br>
     <p> </p>
-    <input type="submit" value="Save changes">
+    <input type="submit" value="Сохранить изменения">
 </form>
 </body>
 </html>

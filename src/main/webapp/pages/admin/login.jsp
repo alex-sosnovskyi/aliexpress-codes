@@ -10,15 +10,17 @@
 
 <html>
 <head>
-    <title>Login</title>
+    <title>Aliexpress code manager</title>
 </head>
 <body>
-<h1> </h1>
+<h1 align="center">Панель управления</h1>
+<p> </p>
 <form name="adminLogin" action="${pageContext.servletContext.contextPath}/admin-panel" align ="center" method="post">
-    <label> User <input name="login" type="text" ></label><br>
+    <label> Введите имя пользователя <input name="login" type="text" ></label><br>
     <br>
-    <label>Password <input name="password" type="password"></label>
-    <input type="submit" value="LogIn">
+    <label>Введите пароль <input name="password" type="password"></label><br>
+    <p> </p>
+    <input type="submit" value="Вход">
 </form>
 </body>
 </html>

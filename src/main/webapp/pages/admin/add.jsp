@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <html>
 <head>
-    <title>Add coupon</title>
+    <title>Добавление купона</title>
 </head>
 <body>
 <form name="adminLogin" action="${pageContext.servletContext.contextPath}/admin-panel/statistic/add" align="center"
@@ -30,7 +30,7 @@
     <br>
     <label>Rating <input name="rating" type="text"></label><br>
     <p> </p>
-    <input type="submit" value="Add to coupons">
+    <input type="submit" value="Добавить">
 </form>
 </body>
 </html>

@@ -5,6 +5,7 @@ package ua.pl.alex.aliexpress.codes.datasource;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import ua.pl.alex.aliexpress.codes.helper.PropertyHolder;
 
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
@@ -63,15 +64,21 @@ public class DataSourceHikariImpl {
     private static void initPoolConnections() {
         //-------------------c3p0-----------------------------------------
         poolConnections = new ComboPooledDataSource();
-        // PropertyHolder propertyHolder= PropertyHolder.getInstance();
+         PropertyHolder propertyHolder= PropertyHolder.getInstance();
         try {
-            //poolConnections.setDriverClass(propertyHolder.getDbDriver());
-            poolConnections.setDriverClass("com.mysql.jdbc.Driver");
-            //poolConnections.setJdbcUrl(propertyHolder.getDbUrl());
-            poolConnections.setJdbcUrl("jdbc:mysql://localhost:3306/coupons?useSSL=false&useUnicode=true&characterEncoding=utf-8");
-            // poolConnections.setUser(propertyHolder.getDbUserLogin());
-            poolConnections.setUser("root");
-            poolConnections.setPassword("");
+            poolConnections.setDriverClass(propertyHolder.getDbDriver());
+            poolConnections.setJdbcUrl(propertyHolder.getDbUrl());
+            poolConnections.setUser(propertyHolder.getDbUserLogin());
+            poolConnections.setPassword(propertyHolder.getDbUserPassword());
+
+//             poolConnections.setDriverClass("org.postgresql.Driver");
+            //postgres://b248.compute-1.amazonaws.com:5432/dd981om64u9ubo
+
+//             poolConnections.setDriverClass("com.mysql.jdbc.Driver");
+//            poolConnections.setUser("root");
+//            poolConnections.setPassword("");
+            //poolConnections.setJdbcUrl("jdbc:mysql://localhost:3306/coupons?useSSL=false&useUnicode=true&characterEncoding=utf-8");
+
             poolConnections.setMinPoolSize(5);
             poolConnections.setAcquireIncrement(1);
             poolConnections.setMaxPoolSize(100);

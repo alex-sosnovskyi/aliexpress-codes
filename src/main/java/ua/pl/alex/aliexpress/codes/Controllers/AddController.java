@@ -76,6 +76,7 @@ public class AddController extends HttpServlet{
             dateOn = format.parse(dayOn);
             dateOf = format.parse(dayOf);
             Coupon couponToAdd = new Coupon(name, description, code, link, region, dateOn, dateOf);
+            couponToAdd.setRating(Integer.valueOf(rating));
             CouponAdminServiceImpl.getInstance().add(couponToAdd);
         } catch (ParseException e) {
             e.printStackTrace();

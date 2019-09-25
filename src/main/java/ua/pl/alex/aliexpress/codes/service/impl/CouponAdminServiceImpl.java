@@ -81,7 +81,7 @@ public class CouponAdminServiceImpl {
             preparedStatement.setString(5, coupon.getRegion());
             preparedStatement.setDate(6, java.sql.Date.valueOf(LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(coupon.getStartOn()))));
             preparedStatement.setDate(7, java.sql.Date.valueOf(LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(coupon.getEndOf()))));
-            preparedStatement.setString(8, String.valueOf(coupon.getRating()));
+            preparedStatement.setInt(8, coupon.getRating());
             preparedStatement.setInt(9, coupon.getId());
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -99,7 +99,7 @@ public class CouponAdminServiceImpl {
             preparedStatement.setString(5, coupon.getRegion());
             preparedStatement.setDate(6, java.sql.Date.valueOf(LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(coupon.getStartOn()))));
             preparedStatement.setDate(7, java.sql.Date.valueOf(LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(coupon.getEndOf()))));
-            preparedStatement.setString(8, String.valueOf(coupon.getRating()));
+            preparedStatement.setInt(8, coupon.getRating());
             int i = preparedStatement.executeUpdate();
             i = 0;
         } catch (SQLException e) {

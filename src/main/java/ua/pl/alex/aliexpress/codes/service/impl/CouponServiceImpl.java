@@ -53,7 +53,7 @@ public class CouponServiceImpl implements Service<Integer, CouponDTO> {
         //--------------------------------------------------
         //  coupons.addAll(couponDao.getAll());
         //----------------------------------------------------
-        //DataSourceHikariImpl dataSource = DataSourceHikariImpl.getInstance();
+        DataSourceHikariImpl dataSource = DataSourceHikariImpl.getInstance();
         try (Connection connection = dataSource.getConnection(); Statement statement = connection.createStatement()) {
             ResultSet rs = statement.executeQuery("SELECT * FROM coupon ORDER BY rating");
             while (rs.next()) {
